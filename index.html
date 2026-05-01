@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Olds — Neuroscientist · Science Policy Scholar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1714;
+    --ink-soft: #3d3830;
+    --ink-muted: #7a7265;
+    --ink-faint: #b5aca0;
+    --paper: #f7f4f0;
+    --paper-warm: #ede9e3;
+    --paper-deep: #e2dcd5;
+    --gold: #a8863d;
+    --gold-light: #c9a85c;
+    --gold-pale: #f0e8d6;
+    --rule: rgba(168, 134, 61, 0.25);
+    --rule-soft: rgba(168, 134, 61, 0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 16px;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(168,134,61,0.06) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, rgba(168,134,61,0.04) 28px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 5rem 0 3.5rem;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .header-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .tagline {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 560px;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  .header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin-top: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .header-meta a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .header-meta a:hover { color: var(--gold-light); border-color: var(--gold-light); }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 160px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-soft); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── LINKS GRID ── */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .link-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.25rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    display: block;
+  }
+  .link-card:hover {
+    background: var(--gold-pale);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .link-card-icon {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    color: var(--gold);
+  }
+
+  .link-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .link-card-desc {
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub-list { list-style: none; }
+  .pub-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 1rem;
+  }
+  .pub-item:last-child { border-bottom: none; }
+
+  .pub-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    padding-top: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  .pub-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.97rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+  }
+  .pub-title a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.2s;
+  }
+  .pub-title a:hover { border-color: var(--gold); color: var(--gold); }
+
+  .pub-venue {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  .pub-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--gold-pale);
+    color: var(--gold);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1px 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── BIO ── */
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 3rem;
+  }
+  @media (max-width: 560px) {
+    .bio-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 2.2rem; }
+  }
+
+  .bio-fact {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .bio-fact-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .bio-fact-value {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* ── ORCID BADGE ── */
+  .orcid-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.6rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .orcid-row:hover { background: var(--gold-pale); border-color: var(--gold); }
+  .orcid-dot { width: 14px; height: 14px; border-radius: 50%; background: #a6ce39; flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 3rem 0;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { color: var(--gold-light); }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <header>
+    <div class="header-rule"></div>
+    <div class="eyebrow">Distinguished University Professor</div>
+    <h1>James Olds<br><em>Neuroscience &amp; Public Policy</em></h1>
+    <p class="tagline">George Mason University · Schar School of Policy and Government<br>Former NSF Assistant Director · BRAIN Initiative · Science Policy Insider</p>
+    <div class="header-meta">
+      <span>Arlington, VA &amp; Paris, FR</span>
+      <a href="https://jim-olds.org" target="_blank" rel="noopener">jim-olds.org</a>
+      <a href="https://sciencepolicyinsider.substack.com" target="_blank" rel="noopener">Substack</a>
+      <a href="https://github.com/jlolds" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <!-- LINKS -->
+  <section>
+    <div class="section-label">Connect &amp; Read</div>
+    <div class="links-grid">
+
+      <a class="link-card" href="https://sciencepolicyinsider.substack.com" target="_blank" rel="noopener">
+        <div class="link-card-icon">✦</div>
+        <div class="link-card-title">Science Policy Insider</div>
+        <div class="link-card-desc">Substack newsletter — insider narratives on federal science policy, ~1,200 subscribers</div>
+      </a>
+
+      <a class="link-card" href="https://jim-olds.org" target="_blank" rel="noopener">
+        <div class="link-card-icon">◈</div>
+        <div class="link-card-title">Jim-Olds.org</div>
+        <div class="link-card-desc">Personal blog — two decades of essays on science, policy, and life</div>
+      </a>
+
+      <a class="link-card" href="https://orcid.org/0000-0003-3214-946X" target="_blank" rel="noopener">
+        <div class="link-card-icon">◉</div>
+        <div class="link-card-title">ORCID Profile</div>
+        <div class="link-card-desc">Verified researcher record — publications, affiliations, and scholarly output</div>
+      </a>
+
+      <a class="link-card" href="https://scholar.google.com/citations?user=dersjkEAAAAJ&hl=en" target="_blank" rel="noopener">
+        <div class="link-card-icon">◎</div>
+        <div class="link-card-title">Google Scholar</div>
+        <div class="link-card-desc">3,000+ citations across neuroscience, AI, and science policy</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="section-label">About</div>
+    <p>I am a Distinguished University Professor at George Mason University's Schar School of Policy and Government, where I teach courses on future governance, crisis management, and science policy. My work sits at the intersection of neuroscience, federal science administration, and the study of how institutions shape and are shaped by scientific knowledge.</p>
+    <p>From 2014 to 2018 I served as NSF Assistant Director for Biological Sciences, where I led NSF's role in President Obama's BRAIN Initiative and co-chaired the White House Life Sciences Subcommittee. Earlier in my career I conducted foundational research on cellular mechanisms of learning and memory using the marine mollusk <em>Hermissenda crassicornis</em>, publishing findings in <em>Science</em> in 1983 and 1989.</p>
+    <p>I currently serve as Chief Risk Officer on the NSF SAGE Grande Testbed project — a large-scale edge AI infrastructure initiative for environmental monitoring and wildfire detection.</p>
+    <div class="bio-grid" style="margin-top: 2rem;">
+      <div>
+        <div class="bio-fact"><span class="bio-fact-label">Affiliation</span><span class="bio-fact-value">George Mason University, Schar School</span></div>
+        <div class="bio-fact"><span class="bio-fact-label">Role</span><span class="bio-fact-value">Distinguished University Professor</span></div>
+        <div class="bio-fact"><span class="bio-fact-label">Fields</span><span class="bio-fact-value">Neuroscience, Science Policy, Governance</span></div>
+      </div>
+      <div>
+        <div class="bio-fact"><span class="bio-fact-label">Previous</span><span class="bio-fact-value">NSF Assistant Director, Biological Sciences</span></div>
+        <div class="bio-fact"><span class="bio-fact-label">Education</span><span class="bio-fact-value">BA Chemistry, Amherst · PhD Neuroscience, Michigan</span></div>
+        <div class="bio-fact"><span class="bio-fact-label">Current Project</span><span class="bio-fact-value">NSF SAGE Grande Testbed (Edge AI)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS & WORKS -->
+  <section>
+    <div class="section-label">Selected Works</div>
+    <ul class="pub-list">
+
+      <li class="pub-item">
+        <span class="pub-year">2025</span>
+        <div>
+          <div class="pub-title">
+            <a href="https://www.e-elgar.com" target="_blank" rel="noopener">How to Be a Science Ambassador</a>
+            <span class="pub-tag">Book</span>
+          </div>
+          <div class="pub-venue">Edward Elgar Publishing, August 2025</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-year">2024–</span>
+        <div>
+          <div class="pub-title">
+            <a href="https://sciencepolicyinsider.substack.com" target="_blank" rel="noopener">Science Policy Insider</a>
+            <span class="pub-tag">Newsletter</span>
+          </div>
+          <div class="pub-venue">Substack · ~1,200 subscribers · bi-weekly</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-year">2005–16</span>
+        <div>
+          <div class="pub-title">
+            <a href="https://www.journals.uchicago.edu/toc/bbl/current" target="_blank" rel="noopener">The Biological Bulletin</a>
+            <span class="pub-tag">Editor-in-Chief</span>
+          </div>
+          <div class="pub-venue">Marine Biological Laboratory, Woods Hole · founded 1897</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-year">2003</span>
+        <div>
+          <div class="pub-title">
+            Partial reinforcement across trials impairs escape but spares place learning in the water maze
+          </div>
+          <div class="pub-venue">Devan, Stouffer, Petri, McDonald &amp; Olds · <em>Behavioural Brain Research</em> 141:91–104</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-year">2002</span>
+        <div>
+          <div class="pub-title">
+            Individual differences in stimulus control of place navigation and latent learning in the water maze
+          </div>
+          <div class="pub-venue">Devan, Petri, Mishkin, Stouffer, Bowker, Yin, Buffalari &amp; Olds · <em>Neurobiology of Learning and Memory</em> 78:79–99</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-year">1993</span>
+        <div>
+          <div class="pub-title">
+            Protein Kinase C: a nexus in the biochemical events that underlie associative learning
+          </div>
+          <div class="pub-venue">Olds &amp; Alkon · <em>Journal of Neurochemistry</em></div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-year">1991</span>
+        <div>
+          <div class="pub-title">
+            Protein Kinase C redistribution within CA3 stratum oriens during acquisition of nictitating membrane conditioning
+          </div>
+          <div class="pub-venue">Scharenberg, Olds et al. · <em>PNAS</em> 88:6637–6641</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-year">1989</span>
+        <div>
+          <div class="pub-title">
+            Imaging of memory-specific changes in the distribution of Protein Kinase C in the hippocampus
+            <span class="pub-tag">Research</span>
+          </div>
+          <div class="pub-venue">Olds, Anderson, McPhie, Staten &amp; Alkon · <em>Science</em> 245:866–869</div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ORCID -->
+  <section>
+    <div class="section-label">Researcher Identity</div>
+    <p>My scholarly record is indexed and verified on ORCID. The ORCID identifier uniquely distinguishes my work from other researchers.</p>
+    <a class="orcid-row" href="https://orcid.org/0000-0003-3214-946X" target="_blank" rel="noopener">
+      <span class="orcid-dot"></span>
+      ORCID iD &nbsp;·&nbsp; orcid.org/0000-0003-3214-946X
+    </a>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrapper">
+    <p>James Olds &nbsp;·&nbsp; <a href="https://jim-olds.org">jim-olds.org</a> &nbsp;·&nbsp; George Mason University</p>
+    <p style="margin-top: 0.5rem; font-size: 10px;">jlolds.github.io</p>
+  </div>
+</footer>
+
+</body>
+</html>
